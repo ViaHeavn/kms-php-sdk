@@ -259,5 +259,24 @@ class KMSAccount
 		);
 		$ret_pkg = $this->kms_client->list_key($params);
 	}
+	
+	public function schedule_key_deletion($keyId, $pendingWindowInDays)
+	{
+		$params=array(
+				'keyId' =>$keyId,
+				'pendingWindowInDays'  =>$pendingWindowInDays
+		);
+		$ret_pkg = $this->kms_client->schedule_key_deletion($params);
+		
+	}
+	
+	public function cancel_key_deletion($keyId)
+	{
+		$params=array(
+				'keyId' =>$keyId
+		);
+		$ret_pkg = $this->kms_client->cancel_key_deletion($params);
+	}
+	
 }
 ?>

@@ -51,9 +51,11 @@ class KmsDemo
 
                 //enable a custom key
                 $kms_account->enable_key($kms_meta->KeyId);
-
-
-
+                //schedule key deletion 
+                $kms_account->schedule_key_deletion($kms_meta->KeyId, 7);
+                //cancel key deletion 
+                $kms_account->cancel_key_deletion($kms_meta->KeyId);
+                
                 //list the custom key
                 $ret_pkg = $kms_account->list_key();
 

@@ -184,6 +184,20 @@ class KMSClient
 	    	$ret = json_decode($resp_inter->data, TRUE);
 	    	return $ret;
 	    }
+	    public funciton schedule_key_deletion($params)
+	    {
+	    	$resp_inter = $this->request("ScheduleKeyDeletion",$params);
+	    	$this->check_status($resp_inter);
+	    	$ret = json_decode($resp_inter->data, TRUE);
+	    	return $ret;
+	    }
+	    public function cancel_key_deletion($params)
+	    {
+	    	$resp_inter = $this->request("CancelKeyDeletion",$params);
+	    	$this->check_status($resp_inter);
+	    	$ret = json_decode($resp_inter->data, TRUE);
+	    	return $ret;
+	    }
 				
 }
 	
