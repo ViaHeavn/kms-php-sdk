@@ -184,7 +184,7 @@ class KMSClient
 	    	$ret = json_decode($resp_inter->data, TRUE);
 	    	return $ret;
 	    }
-	    public funciton schedule_key_deletion($params)
+	    public function schedule_key_deletion($params)
 	    {
 	    	$resp_inter = $this->request("ScheduleKeyDeletion",$params);
 	    	$this->check_status($resp_inter);

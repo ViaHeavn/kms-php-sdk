@@ -18,6 +18,7 @@ class KeyMetadata
 	public $KeyState;
 	public $KeyUsage;
 	public $Alias ;
+	public $DeleteTime;
 	
 	public function __construct()
 	{
@@ -27,6 +28,7 @@ class KeyMetadata
 		$this->Description = "";
 		$this->KeyState="";
 		$this->KeyUsage="";
+		$this->DeleteTime = 0;
 		$this->Alias;
 	}
 	
@@ -93,6 +95,8 @@ class KMSAccount
 		    $kms_meta->KeyUsage = $resp['keyUsage'];	
         if(isset($resp['alias']))
         	$kms_meta->Alias = $resp['alias'];
+        if(isset($resp['deleteTime']))
+        	$kms_meta->DeleteTime = $resp['deleteTime'];
         
 	}
 	
