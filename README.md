@@ -1,31 +1,10 @@
-# C++ sdk
+# php sdk
 ## 开发准备
 
 ### 相关资源
--[GitHub地址](https://github.com/tencentyun/kms-cpp-sdk.git) ,欢迎贡献代码以及反馈问题。
+-[GitHub地址](https://github.com/tencentyun/kms-php-sdk.git) ,欢迎贡献代码以及反馈问题。
 
--[C++ sdk 本地下载]()
-### 开发环境
-1. [安装openssl的库和头文件](http://www.openssl.org/source/)
-2. [安装libcurl](https://curl.haxx.se/download.html)
-3. [安装cmake工具](https://cmake.org/download/)
-4. 从控制台获取APP ID, SecretID,SecretKey。
-
-
-### SDK配置
-下载github上提供的源码，集成到您的开发环境。
-
-执行下面的命令：
-
-```
-    cd ${kms-cpp-sdk}
-    mkdir -p build 
-    cd build
-    cmake ..
-    make 
-```
-
-sample/kms_sample.cpp里面有常见的api例子，生成的kms_sample可以直接运行，生成的libKMS.a 和libKMS.so文件可以放到自己的lib文件夹下，inc目录拷贝到自己工程的include路径下。
+sample/kms_sample.php里面有常见的api例子，生成的kms_sample可以直接运行。
 ### 历史版本
 
 ## 生成客户端对象

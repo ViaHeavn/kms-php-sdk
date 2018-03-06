@@ -72,5 +72,5 @@ $secretId = "";
 $secretKey = "";
 $endPoint = "";
 
-$instance = new  KmsDemo($secretId, $secretKey, $endPoint);
+$instance = new  KmsDemo($endPoint, $secretId, $secretKey);
 $instance->run();
