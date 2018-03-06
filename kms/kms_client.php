@@ -1,5 +1,5 @@
 <?php
-require_once  KMSAPI_ROOT_PATH . '/kms_exception.php ';
+require_once  KMSAPI_ROOT_PATH . '/kms_exception.php';
 require_once  KMSAPI_ROOT_PATH . '/kms_http.php';
 require_once  KMSAPI_ROOT_PATH . '/sign.php';
 
@@ -16,13 +16,14 @@ class KMSClient
 	
 	public function __construct($host, $secretId, $secretKey,$version='SDK_PHP_1.0' , $method='POST' )
 	{
-		$this->process_host($host);
 		$this->secretId = $secretId;
 		$this->secretKey = $secretKey;
 		$this->version = $version;
 		$this->method = $method;
-		$this->http = new KMSHttp($this->host);
+		$this->http = new Http($host);
 		$this->signMethod = 'sha1';
+		$this->process_host($host);
+
 		}
 		
 		protected function process_host($host) {
@@ -125,7 +126,7 @@ class KMSClient
 	    	$resp_inter  = $this->request("CreateKey",$params);
 	    	$this->check_status($resp_inter);   	
 	    	$ret = json_decode($resp_inter->data,TRUE);
-	    	return $ret['keyMeta'] ;
+	    	return $ret['keyMetadata'] ;
 	    }
 	    public function generate_data_key($params)
 	    {
@@ -161,7 +162,7 @@ class KMSClient
 	    	$resp_inter = $this->request("GetKeyAttributes", $params);
 	    	$this->check_status($resp_inter);
 	    	$ret = json_decode($resp_inter->data, TRUE);
-	    	return $ret['keyMeta'];
+	    	return $ret['keyMetadata'];
 	    }
 	    public function enable_key($params)
 	    {

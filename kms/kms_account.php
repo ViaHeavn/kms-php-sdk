@@ -81,7 +81,7 @@ class KMSAccount
 		return $this->kms_client;
 	}
 	
-	protected function __resp2meta__($kms_meta, $resp)
+	protected function __resp2meta__(&$kms_meta, $resp)
 	{
 		if(isset($resp['keyId']))
 			$kms_meta->KeyId = $resp['keyId'];
@@ -118,7 +118,7 @@ class KMSAccount
 		if ($Alias != NULL)
 			$params['alias'] = $Alias;
 		$ret_pkg = $this->kms_client->create_key($params);
-		$kms_meta = KeyMetadata();
+		$kms_meta = new KeyMetadata();
 		$this->__resp2meta__($kms_meta, $ret_pkg);
 		return $kms_meta;
 	}
@@ -209,7 +209,7 @@ class KMSAccount
 		if ($KeyId != NULL)
 			$params['keyId'] = $KeyId;
 		$ret_pkg = $this->kms_client->get_key_attributes($params);
-		$kms_meta = KeyMetadata();
+		$kms_meta = new KeyMetadata();
 		$this->__resp2meta__($kms_meta, $ret_pkg);
 		return $kms_meta ; 
 	}	

@@ -13,13 +13,13 @@ class Signature
      * @param  string $method    请求方法
      * @return
      */
-    public static function sign($srcStr, $secretKey, $method = 'HmacSHA1')
+    public static function sign($srcStr, $secretKey, $method = 'sha1')
     {
         switch ($method) {
-        case 'HmacSHA1':
+        case 'sha1':
             $retStr = base64_encode(hash_hmac('sha1', $srcStr, $secretKey, true));
             break;
-        case 'HmacSHA256':
+        case 'sha256':
             $retStr = base64_encode(hash_hmac('sha256', $srcStr, $secretKey, true));
             break;
         default:
