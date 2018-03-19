@@ -145,6 +145,7 @@ public function generate_data_key($KeyId = NULL, $KeySpec = "", $NumberOfBytes =
 |CiphertextBlob|string|无|生成的数据密钥密文|
 
 返回字典：
+
 |参数名|类型|参数描述|
 |---------|---------|---------|
 |plaintext|string|表示生成的数据密钥明文(输入参数返回)|
