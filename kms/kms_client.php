@@ -203,5 +203,3 @@ class KMSClient
 }
 	
 ?>
-
-
