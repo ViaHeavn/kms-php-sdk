@@ -145,7 +145,8 @@ class KMSAccount
 		if ($EncryptionContext != NULL)
 			$params['encryptionContext'] = $EncryptionContext;
 		$ret_pkg = $this->kms_client->generate_data_key($params);
-		return base64_decode($ret_pkg['plaintext']);		
+		$ret_pkg['plaintext'] = base64_decode($ret_pkg['plaintext']);
+		return $ret_pkg;
 	}
 	/* encryption
             @params            @description                       @type            @default     @value
